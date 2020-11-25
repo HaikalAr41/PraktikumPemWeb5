@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Form Validasi</title>
+		
+	</head>
+
+	<body>
+		
+		<div>
+			
+			<div>
+  				<div>
+    				<h2 align="center">FORM PENGISIAN </h2>
+  				</div>
+			</div>
+            <br>
+			<br>
+			<h3 align="center"> Isi Form Untuk Melakukan Validasi</h3>
+			
+			<center>
+			<form method="request" name="formku">
+				<input type="text" id="name" name="name" onKeyPress="return maxlength(event)" placeholder="Nama Pelanggan" required /><br>
+				<br>
+				<input type="email" id="email" name="email" placeholder="Email" required /><br>
+ 				<br>
+				<input type="time" id="jam" name="jam" required /><br>
+				<br>
+				<center>
+							<select name="tujuan" id="tujuan" required>
+								<option value="0">TUJUAN KEBERANGKATAN</option>
+								<option value="AMERIKA"> AMERIKA  </option>
+								<option value="JAPAN"> JAPAN  </option>
+								<option value="KOREA"> ENGLANG  </option>
+								<option value="SINGAPORE"> SINGAPORE  </option>
+								<option value="TURKEY"> TURKEY  </option>
+								<option value="RUSSIA"> AUSTRALLIA  </option>
+							</select>
+					
+					</center>
+                <br>
+                <br>
+				<input type="text" id="jmltiket" name="jmltiket" placeholder="Jumlah Tiket " onKeyUp="angka(this)" maxlength="2" required /><br>
+                <br>
+                <br>
+				<input type="submit" onClick="return validasi()" value="Kirim">
+			</form>
+			
+			<div id="chatbox"></div>
+			</center>
+        </div>
+        
+        <script>
+            
+
+
+function maxlength(evt) {
+	let  panjangnama = document.getElementById("name").value;
+	if (panjangnama.length >= 30  ){
+		window.alert("Max Length 30");
+		return false;
+	}
+}
+
+
+function angka(e) {
+  let max = document.getElementById("jmltiket").value;
+  if (!/^[0-9]+$/.test(e.value)) {
+	window.alert("Hanya Boleh Angka");
+    e.value = e.value.substring(0,e.value.length-1);
+	max.length = 2;
+  }
+}
+
+
+function validasi() {
+	let nama = document.getElementById("name").value;
+	let email = document.getElementById("email").value;
+	let jam = document.getElementById("jam").value;
+	let tujuan = document.getElementById("tujuan").value;
+	let tiket = document.getElementById("jmltiket").value;
+	
+	if (nama && email && jam  && tujuan  && tiket ) {
+		document.getElementById("chatbox").innerHTML= "Nama : " + nama + "<br>" + "Email : " + email + "<br>" + "Jam Berangkat : " + jam + "<br>" + "Tujuan : " +tujuan + "<br>" + "Jumlah Tiket : " + tiket + "<br><br>" + "Form Anda Telah Divalidasi" + "<br> Selamat Menikmati Perjalanan Anda";
+		return false;
+	}else{
+		alert("MOHON ISI DATA DENGAN BENAR DAN SESUAI");
+	}	
+}
+        </script>
+	</body>
+</html>

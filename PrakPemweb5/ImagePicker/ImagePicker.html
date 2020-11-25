@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>	
+        <title>IMAGE PICKER</title>
+    </head>
+        <body style="margin: 300px" bgcolor="#00416A">  	
+            <br>
+            <br>
+            <center>		
+                <h1 style="color: darkred; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" >IMAGE PICKER LOGO KLUB EPL</h1>
+            <select onchange="gantigambar();" id="listgambar">			
+                <option value="Logo epl.png">PILIH LOGO</option>			
+                <option value="MANCHESTER UNITED.JPG">Manchester United</option>			
+                <option value="MANCHESTER CITY.JPG">MANCHESTER CITY</option>			
+                <option value="LIVERPOOL.JPG">LIVERPOOL</option>			
+                <option value="ARSENAL.JPG">ARSENAL</option>	
+                <option value="CHELSEA.PNG">CHELSEA</option>
+                <option value="TOTTENHAM.JPG">TOTTENHAM</option>		
+            </select>	
+        </center>		
+            <br/>	
+            <br>
+            <img src="LOGO EPL.png" style="width: 100%" id="gambar">
+         </body>
+         <script type="text/javascript">	
+            function gantigambar()
+             {		
+                 let gambar = document.getElementById("listgambar").value;		
+                 document.getElementById("gambar").src = gambar;		
+                 alert("Ini Gambar " + gambar);	  
+               }
+           </script>
+         
+</html>
